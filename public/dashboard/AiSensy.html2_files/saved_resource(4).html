@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- saved from url=(0012)about:srcdoc -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Assistant</title>
+<style>html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#ffffff}body{display:block}</style>
+<style>html,body{margin:0!important;padding:0!important;height:100%!important;}</style></head>
+<body>
+<script>
+(function () {
+  var HOST_ORIGIN = "https://www.app.aisensy.com";
+  var GINGER_ORIGIN = "https://backend.gingerlabs.ai";
+  var TOKEN_REQUEST = "GINGER_TOKEN_REQUEST";
+  var TOKEN_ACK = "GINGER_TOKEN_HANDOFF_ACK";
+  var WIDGET_READY = "GINGER_WIDGET_READY";
+  var chatWin = null;
+
+  function notifyWidgetReady() {
+    window.parent.postMessage({ type: WIDGET_READY }, HOST_ORIGIN);
+  }
+
+  window.addEventListener("message", function (event) {
+    var data = event.data;
+    if (!data || !data.type) return;
+
+    // The widget's own nested frame lives on GINGER_ORIGIN; this document is the
+    // only one that can see both origins, so it relays the token handoff.
+    if (data.type === TOKEN_REQUEST) {
+      if (event.origin !== GINGER_ORIGIN) return;
+      chatWin = event.source;
+      window.parent.postMessage(data, HOST_ORIGIN);
+      return;
+    }
+
+    if (data.type === TOKEN_ACK) {
+      if (event.source !== window.parent || event.origin !== HOST_ORIGIN) return;
+      if (chatWin) chatWin.postMessage(data, GINGER_ORIGIN);
+    }
+  });
+
+  window.GingerSettings = {"user_id":"6aa3f69486634147725873c5","project_id":"6aa3f69486634147725873cb","name":"Bps Ventures","email":"bpsventures0@gmail.com","tenant":"www.app.aisensy.com"};
+
+  var script = document.createElement("script");
+  script.async = true;
+  script.onload = notifyWidgetReady;
+  script.onerror = notifyWidgetReady;
+  script.src = GINGER_ORIGIN + "/widget/embed-panel.js";
+  document.body.appendChild(script);
+})();
+</script><script async="" src="https://backend.gingerlabs.ai/widget/embed-panel.js"></script>
+
+<iframe src="https://backend.gingerlabs.ai/widget/chat/index.html?backend=https%3A%2F%2Fbackend.gingerlabs.ai&amp;project_id=6a282e6f2d71ce1f70854531&amp;project_name=AISensy&amp;user_id=6aa3f69486634147725873c5&amp;username=Bps%20Ventures&amp;metadata=%7B%22project_id%22%3A%226aa3f69486634147725873cb%22%7D&amp;context=%7B%22email%22%3A%22bpsventures0%40gmail.com%22%7D&amp;page_origin=https%3A%2F%2Fwww.app.aisensy.com&amp;project_metadata=%7B%7D&amp;mode=topnav&amp;accent_color=%2328c153&amp;background_color=%23f7f7f7&amp;header_title=AI%20Assistant&amp;header_name=AI%20Assistant&amp;disclaimer_embedded=&amp;disclaimer_topnav=AI%20Assistant%20can%20make%20mistakes%20%E2%80%94%20please%20verify.&amp;user_bubble_color=%23ffffff&amp;user_text_color=%23000000&amp;font_family=google%3ASora&amp;logo_url=&amp;icon_tile_style=soft&amp;message_font_size=&amp;message_line_height=&amp;message_paragraph_spacing=&amp;starter_prompt_sends=1&amp;show_thinking=0&amp;remove_branding=1&amp;page_url=about%3Asrcdoc" title="AI Assistant" allow="clipboard-write" style="border: 0px; position: fixed; inset: 0px; width: 100%; height: 100%; display: block;"></iframe></body></html>
