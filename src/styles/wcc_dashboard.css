@@ -1,0 +1,1085 @@
+/* ========================================================
+   WCC DASHBOARD STYLES (MATCHES EXACT BRAND VISUAL PROOF)
+======================================================== */
+
+.wcc-page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0f172a;
+}
+
+.wcc-main-scroll-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8fafc;
+}
+
+.wcc-root {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+  padding-bottom: 50px;
+}
+
+/* ========================================================
+   TOP NAVBAR
+======================================================== */
+.wcc-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wcc-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wcc-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wcc-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.wcc-header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.wcc-workspace-link-btn {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.wcc-workspace-link-btn:hover {
+  background: #e2e8f0;
+  color: #064e43;
+}
+
+.wcc-bell-btn {
+  background: transparent;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background 0.15s ease;
+}
+
+.wcc-bell-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.wcc-bell-badge {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+}
+
+.wcc-user-profile-menu {
+  position: relative;
+}
+
+.wcc-user-profile-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.wcc-user-profile-btn:hover {
+  background: #f1f5f9;
+}
+
+.wcc-user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #064e43;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.2px;
+}
+
+.wcc-user-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.wcc-user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 220px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  z-index: 200;
+}
+
+.wcc-dropdown-item {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s ease;
+}
+
+.wcc-dropdown-item:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.wcc-dropdown-item.logout {
+  color: #dc2626;
+}
+
+.wcc-dropdown-item.logout:hover {
+  background: #fef2f2;
+}
+
+.wcc-dropdown-divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 6px 0;
+}
+
+/* ========================================================
+   CONTAINER
+======================================================== */
+.wcc-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+
+/* ========================================================
+   HEADER TITLE ROW
+======================================================== */
+.wcc-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wcc-heading {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+  margin: 0 0 4px 0;
+}
+
+.wcc-subheading {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+.wcc-title-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wcc-status-active-badge {
+  background: #eafaf1;
+  border-radius: 20px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.wcc-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #16a34a;
+}
+
+.wcc-filter-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.15s ease;
+}
+
+.wcc-filter-btn:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+/* ========================================================
+   TOP 4 METRICS GRID
+======================================================== */
+.wcc-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.wcc-metric-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wcc-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.wcc-metric-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wcc-metric-icon-box.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.wcc-metric-icon-box.blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.wcc-metric-icon-box.purple {
+  background: #f3e8ff;
+  color: #9333ea;
+}
+
+.wcc-metric-icon-box.orange {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.wcc-metric-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.wcc-metric-label {
+  font-size: 12.5px;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.wcc-metric-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.wcc-metric-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.wcc-trend-up {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.wcc-metric-subtext {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ========================================================
+   MAIN CONTENT TWO-COLUMN GRID
+======================================================== */
+.wcc-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.wcc-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.wcc-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 2-Card Row inside Left Column */
+.wcc-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.wcc-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wcc-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.wcc-card-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wcc-card-dropdown-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ========================================================
+   CHART 1: BALANCE TREND
+======================================================== */
+.wcc-trend-chart-box {
+  width: 100%;
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.wcc-svg-chart {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ========================================================
+   CHART 2: USAGE BREAKDOWN DONUT
+======================================================== */
+.wcc-donut-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 220px;
+}
+
+.wcc-donut-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.wcc-donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.wcc-donut-center-val {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.wcc-donut-center-sub {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.wcc-legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.wcc-legend-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wcc-legend-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.wcc-legend-dot-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wcc-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.wcc-legend-subval {
+  font-size: 11px;
+  color: #64748b;
+  padding-left: 14px;
+}
+
+/* ========================================================
+   SPECIAL OFFER BANNER CARD
+======================================================== */
+.wcc-offer-banner-card {
+  background: linear-gradient(135deg, #eefbf4 0%, #e6f9f0 100%);
+  border: 1px solid #a7f3d0;
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.wcc-offer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wcc-offer-gift-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #16a34a;
+}
+
+.wcc-offer-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #064e43;
+  margin-bottom: 3px;
+}
+
+.wcc-offer-desc {
+  font-size: 13px;
+  color: #374151;
+  margin: 0;
+}
+
+.btn-offer-recharge-now {
+  background: #064e43;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(6, 78, 67, 0.2);
+}
+
+.btn-offer-recharge-now:hover {
+  background: #043830;
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   RIGHT COLUMN: WIDGET 1 WALLET BALANCE
+======================================================== */
+.wcc-wallet-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wcc-wallet-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.wcc-wallet-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wcc-wallet-art-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #eefbf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  border: 1px solid #d1fae5;
+  margin-right: -8px;
+  margin-top: -8px;
+}
+
+.wcc-wallet-amount {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 4px 0 6px 0;
+  letter-spacing: -0.5px;
+}
+
+.wcc-wallet-active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eafaf1;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #16a34a;
+  margin-bottom: 20px;
+}
+
+.btn-recharge-wallet-action {
+  width: 100%;
+  background: #064e43;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(6, 78, 67, 0.15);
+}
+
+.btn-recharge-wallet-action:hover {
+  background: #043830;
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   RIGHT COLUMN: WIDGET 2 QUICK ACTIONS
+======================================================== */
+.wcc-quick-actions-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wcc-quick-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.wcc-quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.wcc-quick-btn {
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-align: left;
+}
+
+.wcc-quick-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.wcc-quick-btn.btn-buy {
+  background: #f0fdf4;
+  border-color: #dcfce7;
+  color: #15803d;
+}
+
+.wcc-quick-btn.btn-history {
+  background: #eff6ff;
+  border-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.wcc-quick-btn.btn-report {
+  background: #faf5ff;
+  border-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.wcc-quick-btn.btn-support {
+  background: #fff7ed;
+  border-color: #ffedd5;
+  color: #c2410c;
+}
+
+/* ========================================================
+   RIGHT COLUMN: WIDGET 3 RECENT TRANSACTIONS
+======================================================== */
+.wcc-transactions-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wcc-transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.wcc-transactions-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wcc-view-all-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0;
+}
+
+.wcc-view-all-link:hover {
+  text-decoration: underline;
+}
+
+.wcc-tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wcc-tx-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.wcc-tx-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wcc-tx-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wcc-tx-icon-circle.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.wcc-tx-icon-circle.whatsapp {
+  background: #dcfce7;
+  color: #22c55e;
+}
+
+.wcc-tx-icon-circle.purple {
+  background: #f3e8ff;
+  color: #9333ea;
+}
+
+.wcc-tx-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.wcc-tx-date {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.wcc-tx-amount {
+  font-size: 13.5px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.wcc-tx-amount.credit {
+  color: #16a34a;
+}
+
+.wcc-tx-amount.debit {
+  color: #ef4444;
+}
+
+/* ========================================================
+   MODALS
+======================================================== */
+.wcc-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.wcc-modal-card {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  position: relative;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.wcc-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+
+.wcc-modal-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.wcc-modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.wcc-modal-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.wcc-preset-recharge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.wcc-preset-btn {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.wcc-preset-btn:hover,
+.wcc-preset-btn.active {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.wcc-custom-amount-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  outline: none;
+  margin-bottom: 16px;
+  transition: border-color 0.15s ease;
+}
+
+.wcc-custom-amount-input:focus {
+  border-color: #16a34a;
+}
+
+.wcc-bonus-credit-pill {
+  background: #eafaf1;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-confirm-recharge {
+  width: 100%;
+  background: #064e43;
+  color: #ffffff;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-confirm-recharge:hover {
+  background: #043830;
+}
+
+/* Toast notification */
+.wcc-toast-alert {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #064e43;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  z-index: 1100;
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+  .wcc-main-grid {
+    grid-template-columns: 1fr;
+  }
+  .wcc-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wcc-charts-row {
+    grid-template-columns: 1fr;
+  }
+  .wcc-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .wcc-offer-banner-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,365 @@
+/* ========================================================
+   CRISP / INTERCOM STYLE LIVE CHAT DRAWER (IMAGE 4 & 5)
+======================================================== */
+.floating-smile-chat-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.25s ease;
+}
+
+.floating-smile-chat-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.55);
+}
+
+.crisp-chat-card-drawer {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: 380px;
+  max-width: 92vw;
+  height: 590px;
+  max-height: 82vh;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1001;
+  animation: crispSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes crispSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.crisp-drawer-header {
+  background: linear-gradient(135deg, #a7f3d0 0%, #34d399 50%, #10b981 100%);
+  padding: 20px 22px 22px;
+  color: #064e3b;
+}
+
+.crisp-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.crisp-avatars-cluster {
+  display: flex;
+  align-items: center;
+}
+
+.crisp-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.crisp-avatar.overlap {
+  margin-left: -10px;
+}
+
+.crisp-avatar.overlap-2 {
+  margin-left: -10px;
+}
+
+.crisp-close-btn {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #064e3b;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.crisp-close-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.crisp-greeting-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #064e3b;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.crisp-greeting-subtitle {
+  font-size: 15px;
+  color: #065f46;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.crisp-send-msg-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.crisp-send-msg-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.crisp-send-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.crisp-send-arrow {
+  color: #00c067;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crisp-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  background: #f8fafc;
+  padding: 16px;
+}
+
+.crisp-feature-news-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.crisp-feature-news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  border-color: #00c067;
+}
+
+.crisp-feature-img-box {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.crisp-feature-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.crisp-feature-info {
+  padding: 12px 14px;
+}
+
+.crisp-feature-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.crisp-feature-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+}
+
+.crisp-quick-links-box {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crisp-quick-link-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.crisp-quick-link-item:hover {
+  border-color: #00c067;
+  background: #f0fdf4;
+}
+
+.crisp-drawer-bottom-nav {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.crisp-nav-tab {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.crisp-nav-tab.active {
+  color: #00c067;
+}
+
+/* Chat Messages in Drawer */
+.crisp-chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+.crisp-bubble-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 82%;
+}
+
+.crisp-bubble-row.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.crisp-bubble-row.bot {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.crisp-msg-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.crisp-bubble-row.user .crisp-msg-bubble {
+  background: #00c067;
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+}
+
+.crisp-bubble-row.bot .crisp-msg-bubble {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 2px;
+}
+
+.crisp-msg-time {
+  font-size: 10px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.crisp-chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  padding: 6px 12px;
+  margin-top: 10px;
+}
+
+.crisp-chat-input-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.crisp-chat-input-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crisp-tab-news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.crisp-news-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.crisp-news-item h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin: 6px 0 4px;
+}
+
+.crisp-news-item p {
+  font-size: 12.5px;
+  color: #4b5563;
+  line-height: 1.45;
+}
