@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://backend.aisensy.com/client/t1/auth/recaptcha -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>reCAPTCHA Bridge</title>
+    <script type="text/javascript" async="" charset="utf-8" src="./recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-LR3/YF3zO8t1fb2C/IzWuDXk1AauM4g7H6t4/YSoPOxpHIy5aJgy+UF7MKqkx56o" nonce=""></script><script src="./api(1).js.download" async="" defer=""></script>
+    <script nonce="">
+      var __parentOrigin = null;
+      function post(type, payload) { try { parent && parent.postMessage({ type, payload }, __parentOrigin || "*"); } catch(e){} }
+      var __widgetId = null;
+      var __ready = false;
+      var __executePending = false;
+
+      async function storeToken(token) {
+        const response = await fetch('https://backend.aisensy.com/client/t1/auth/recaptcha/store', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ token })
+        });
+        if (!response.ok) {
+          const err = new Error('store-failed');
+          err.status = response.status;
+          throw err;
+        }
+      }
+
+      function onRecaptchaLoad() {
+        try {
+          grecaptcha.ready(function() {
+            try {
+              __widgetId = grecaptcha.render('recaptcha', {
+                'sitekey': '6Le9a6orAAAAALmsqREl1pV31Mhr0t87K06FCVMZ',
+                'size': 'invisible',
+                'callback': async function(token) {
+                  try {
+                    await storeToken(token);
+                    post('recaptcha:stored');
+                  } catch (e) {
+                    post('recaptcha:error', { message: e.message || 'store-failed', status: e.status });
+                  }
+                },
+                'error-callback': function() { post('recaptcha:error', { message: 'load-error' }); },
+                'expired-callback': function() { post('recaptcha:error', { message: 'expired' }); }
+              });
+              __ready = true;
+              if (__executePending) {
+                try { grecaptcha.execute(__widgetId); } catch (e) {}
+                __executePending = false;
+              }
+            } catch (e) {}
+          });
+        } catch (e) {}
+      }
+      window.addEventListener('message', function(event) {
+        var data = event && event.data || {};
+        if (data.type === 'recaptcha:execute') {
+          __parentOrigin = event.origin;
+          try {
+            if (__ready && __widgetId !== null) {
+              grecaptcha.execute(__widgetId);
+            } else {
+              __executePending = true;
+            }
+          } catch(e) {}
+        }
+      });
+      window.onRecaptchaLoad = onRecaptchaLoad;
+    </script>
+  </head>
+  <body>
+    <div id="recaptcha" class="g-recaptcha" data-size="invisible"><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-x1x2dab8fxz1" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="./anchor.html"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./saved_resource.html"></iframe></div>
+  
+<div style="visibility: hidden; position: absolute; width: 100%; top: -10000px; left: 0px; right: 0px; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.5;"></div><div style="margin: 0px auto; top: 0px; left: 0px; right: 0px; position: fixed; border: 1px solid rgb(204, 204, 204); z-index: 2000000000; background-color: rgb(255, 255, 255);"><iframe title="recaptcha challenge expires in two minutes" name="c-x1x2dab8fxz1" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="./bframe.html" style="width: 100%; height: 100%;"></iframe></div></div></body></html>
