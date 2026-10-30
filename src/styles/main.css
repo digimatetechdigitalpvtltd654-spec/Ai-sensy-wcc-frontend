@@ -37,13 +37,26 @@ html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
   color: var(--text-main);
-  background-color: #ffffff;
+  background-color: #f8fafc;
 }
 
 body {
   line-height: 1.5;
   overflow-x: hidden;
-  padding-bottom: 50px; /* space for sticky banner */
+  margin: 0;
+  padding: 0;
+}
+
+#root, .app-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-page-wrapper {
+  background-color: #ffffff;
+  padding-bottom: 60px; /* space for sticky banner on landing page */
 }
 
 a {
