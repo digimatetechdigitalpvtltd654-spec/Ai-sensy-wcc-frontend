@@ -64,18 +64,16 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
   // 23 Oct: balance 4720, credit 4000 received from random
   // 25 Oct: balance 4720, 1500 recharge, 2500 received failed and after again received
   const rechargeHistory: RechargeHistoryItem[] = [
-
     {
       id: 'rc-2',
       txnId: 'TXN-WCC-982428',
-      date: '25 Oct 2026 ',
-      title: 'Credit Received ',
+      date: '25 Oct 2026',
+      title: 'Credit Received',
       amount: 2322.24,
-      method: 'Razorpay ',
+      method: 'Razorpay',
       status: 'Successful',
       closingBalance: 4720,
     },
-
     {
       id: 'rc-3',
       txnId: 'TXN-WCC-982427',
@@ -92,15 +90,15 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
       date: '25 Oct 2026',
       title: 'WCC Wallet Recharge',
       amount: 1500,
-      method: 'Razorpay ',
+      method: 'Razorpay',
       status: 'Successful',
       closingBalance: 4720,
     },
     {
       id: 'rc-4',
       txnId: 'TXN-WCC-982423',
-      date: '23 Oct 2026 ',
-      title: 'Credit Received ',
+      date: '23 Oct 2026',
+      title: 'Credit Received',
       amount: 4000,
       method: 'From For Play',
       status: 'Successful',
@@ -112,15 +110,15 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
       date: '19 Oct 2026',
       title: 'WCC Wallet Recharge',
       amount: 1500,
-      method: 'Razorpay ',
+      method: 'Razorpay',
       status: 'Successful',
       closingBalance: 3540,
     },
     {
       id: 'rc-6',
       txnId: 'TXN-WCC-982419',
-      date: '19 Oct 2026 ',
-      title: 'Credit Received ',
+      date: '19 Oct 2026',
+      title: 'Credit Received',
       amount: 1500,
       method: 'From Dezoryn tech',
       status: 'Successful',
@@ -129,8 +127,8 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
     {
       id: 'rc-7',
       txnId: 'TXN-WCC-982415',
-      date: '15 Oct 2026 ',
-      title: 'Credit Received ',
+      date: '15 Oct 2026',
+      title: 'Credit Received',
       amount: 3000,
       method: 'From Sanjay enterprises',
       status: 'Successful',
@@ -139,7 +137,7 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
     {
       id: 'rc-8',
       txnId: 'TXN-WCC-982409',
-      date: '07 Oct 2026 ',
+      date: '07 Oct 2026',
       title: 'WCC Wallet Recharge',
       amount: 1500,
       method: 'Razorpay',
@@ -149,8 +147,8 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
     {
       id: 'rc-9',
       txnId: 'TXN-WCC-982408',
-      date: '07 Oct 2026 ',
-      title: 'Credit Received ',
+      date: '07 Oct 2026',
+      title: 'Credit Received',
       amount: 1500,
       method: 'From Digi Mate tech digital',
       status: 'Successful',
@@ -159,7 +157,7 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
     {
       id: 'rc-10',
       txnId: 'TXN-WCC-982406',
-      date: '06 Oct 2026 ',
+      date: '06 Oct 2026',
       title: 'Balance Maintained (Nothing happen)',
       amount: 0,
       method: 'System Ledger',
@@ -169,8 +167,8 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
     {
       id: 'rc-11',
       txnId: 'TXN-WCC-982329',
-      date: '29 Sep 2026 ',
-      title: 'Credit Received ',
+      date: '29 Sep 2026',
+      title: 'Credit Received',
       amount: 3000,
       method: 'From Rupesh tech.',
       status: 'Successful',
@@ -394,7 +392,7 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
             <div className="subpage-table-card">
               <div style={{ padding: '16px 20px', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontWeight: 700, fontSize: 14, color: '#0f172a' }}>
-                  WCC Recharge History (Sep 29 – Oct 25, 2026)
+                  WCC Recharge History
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                   <span style={{ fontSize: 13, color: '#059669', fontWeight: 700 }}>
@@ -435,7 +433,7 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
                         {rc.status === 'Failed' ? (
                           <div>
                             <span style={{ color: '#dc2626', fontWeight: 700, fontSize: 13.5 }}>
-                              ₹ {rc.amount.toLocaleString('en-IN')}.00
+                              ₹ {rc.amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </span>
                             <div style={{ fontSize: 11, color: '#dc2626', fontWeight: 500 }}>
                               Credit Received Failed
@@ -453,7 +451,7 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({ onNavigate }) => {
                         ) : (
                           <div>
                             <strong style={{ color: '#059669', fontSize: 13.5 }}>
-                              + ₹ {rc.amount.toLocaleString('en-IN')}.00
+                              + ₹ {rc.amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </strong>
                             <div style={{ fontSize: 11, color: rc.title.includes('Recharge') ? '#64748b' : '#0284c7', fontWeight: 500 }}>
                               {rc.title}
