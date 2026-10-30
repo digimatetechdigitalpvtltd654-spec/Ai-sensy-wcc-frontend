@@ -44,6 +44,7 @@ interface WCCDashboardPageProps {
 
 interface TransactionItem {
   id: string;
+  txnId?: string;
   title: string;
   type: 'recharge' | 'credit' | 'failed' | 'maintained' | 'campaign' | 'ad_credits';
   date: string;
@@ -73,107 +74,117 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [hoveredTrendPoint, setHoveredTrendPoint] = useState<{ day: string; date: string; val: number; note: string; x: number; y: number } | null>(null);
 
-  // Exact Detailed Ledger requested by user:
-  // 29 Sep: balance 3540, credit 3000 received from random
-  // 6 Oct: balance 3540, nothing happen
-  // 7 Oct: 1500 recharge & 1500 credit received from random, balance 3540
-  // 15 Oct: balance 3540, credit 3000 received from random
-  // 19 Oct: balance 3540, credit 1500 received & 1500 recharge
-  // 23 Oct: balance 4720, credit 4000 received from random
-  // 25 Oct: balance 4720, 1500 recharge, 2500 received failed and after again received
+  // Exact Detailed Ledger aligned with History & Ledger:
+  // 29 Sep: balance 3540, credit 3000 received from Rupesh tech.
+  // 6 Oct: balance 3540, nothing happen (Balance Maintained)
+  // 7 Oct: 1500 recharge (Razorpay) & 1500 credit received (From Digi Mate tech digital), balance 3540
+  // 15 Oct: balance 3540, credit 3000 received (From Sanjay enterprises)
+  // 19 Oct: balance 3540, credit 1500 received (From Dezoryn tech) & 1500 recharge (Razorpay)
+  // 23 Oct: balance 4720, credit 4000 received (From For Play)
+  // 25 Oct: balance 4720, 1500 recharge (Razorpay), 2500 received failed (From Sanjay enterprises), 2322.24 credit received (Razorpay)
   const [transactions, setTransactions] = useState<TransactionItem[]>([
     {
       id: 'tx-1',
-      title: 'WCC Wallet Recharge',
-      type: 'recharge',
+      txnId: 'TXN-WCC-982428',
+      title: 'Credit Received',
+      type: 'credit',
       date: '25 Oct 2026 | 06:10 PM',
-      amount: 1500,
+      amount: 2322.24,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI (Google Pay)',
+      method: 'Razorpay',
     },
     {
       id: 'tx-2',
-      title: 'Credit Received (random)',
-      type: 'credit',
-      date: '25 Oct 2026 | 05:48 PM',
-      amount: 2500,
-      status: 'Successful',
-      isCredit: true,
-      method: 'Razorpay UPI',
-    },
-    {
-      id: 'tx-3',
-      title: 'Credit Received (random)',
+      txnId: 'TXN-WCC-982427',
+      title: 'Credit Received',
       type: 'failed',
       date: '25 Oct 2026 | 05:42 PM',
       amount: 2500,
       status: 'Failed',
       isCredit: false,
-      method: 'UPI (Google Pay)',
+      method: 'From Sanjay enterprises',
+    },
+    {
+      id: 'tx-3',
+      txnId: 'TXN-WCC-982429',
+      title: 'WCC Wallet Recharge',
+      type: 'recharge',
+      date: '25 Oct 2026 | 04:30 PM',
+      amount: 1500,
+      status: 'Successful',
+      isCredit: true,
+      method: 'Razorpay',
     },
     {
       id: 'tx-4',
-      title: 'Credit Received (random)',
+      txnId: 'TXN-WCC-982423',
+      title: 'Credit Received',
       type: 'credit',
       date: '23 Oct 2026 | 11:15 AM',
       amount: 4000,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI (PhonePe)',
+      method: 'From For Play',
     },
     {
       id: 'tx-5',
+      txnId: 'TXN-WCC-982420',
       title: 'WCC Wallet Recharge',
       type: 'recharge',
       date: '19 Oct 2026 | 03:15 PM',
       amount: 1500,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI (Paytm)',
+      method: 'Razorpay',
     },
     {
       id: 'tx-6',
-      title: 'Credit Received (random)',
+      txnId: 'TXN-WCC-982419',
+      title: 'Credit Received',
       type: 'credit',
       date: '19 Oct 2026 | 02:30 PM',
       amount: 1500,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI (Paytm)',
+      method: 'From Dezoryn tech',
     },
     {
       id: 'tx-7',
-      title: 'Credit Received (random)',
+      txnId: 'TXN-WCC-982415',
+      title: 'Credit Received',
       type: 'credit',
       date: '15 Oct 2026 | 01:20 PM',
       amount: 3000,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay NetBanking',
+      method: 'From Sanjay enterprises',
     },
     {
       id: 'tx-8',
+      txnId: 'TXN-WCC-982409',
       title: 'WCC Wallet Recharge',
       type: 'recharge',
       date: '07 Oct 2026 | 04:40 PM',
       amount: 1500,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI',
+      method: 'Razorpay',
     },
     {
       id: 'tx-9',
-      title: 'Credit Received (random)',
+      txnId: 'TXN-WCC-982408',
+      title: 'Credit Received',
       type: 'credit',
       date: '07 Oct 2026 | 04:15 PM',
       amount: 1500,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI (Google Pay)',
+      method: 'From Digi Mate tech digital',
     },
     {
       id: 'tx-10',
+      txnId: 'TXN-WCC-982406',
       title: 'Balance Maintained',
       type: 'maintained',
       date: '06 Oct 2026 | 10:45 AM',
@@ -184,13 +195,14 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
     },
     {
       id: 'tx-11',
-      title: 'Credit Received (random)',
+      txnId: 'TXN-WCC-982329',
+      title: 'Credit Received',
       type: 'credit',
       date: '29 Sep 2026 | 04:12 PM',
       amount: 3000,
       status: 'Successful',
       isCredit: true,
-      method: 'Razorpay UPI',
+      method: 'From Rupesh tech.',
     },
   ]);
 
@@ -203,7 +215,7 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
     { day: '15 Oct', date: '15 Oct 2026', val: 3540, note: '+₹3,000 Credit Received', x: 200, y: 79 },
     { day: '19 Oct', date: '19 Oct 2026', val: 3540, note: '+₹1,500 Recharge & +₹1,500 Credit', x: 255, y: 79 },
     { day: '23 Oct', date: '23 Oct 2026', val: 4720, note: '+₹4,000 Credit Received', x: 310, y: 47 },
-    { day: '25 Oct', date: '25 Oct 2026', val: 4720, note: '+₹1,500 Recharge & +₹2,500 Credit', x: 365, y: 47 },
+    { day: '25 Oct', date: '25 Oct 2026', val: 4720, note: '+₹1,500 Recharge & +₹2,322.24 Credit', x: 365, y: 47 },
   ];
 
   const handleSelectPreset = (amount: number) => {
@@ -767,9 +779,9 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
                 <div className="wcc-transactions-header">
                   <div>
                     <span className="wcc-transactions-title">Recent Transactions</span>
-                    <span style={{ fontSize: 11, color: '#16a34a', fontWeight: 600, marginLeft: 8 }}>
+                    {/* <span style={{ fontSize: 11, color: '#16a34a', fontWeight: 600, marginLeft: 8 }}>
                       (Sep 29 – Oct 25)
-                    </span>
+                    </span> */}
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <button
@@ -821,7 +833,7 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
                       <div className="wcc-tx-amount" style={{ textAlign: 'right' }}>
                         {tx.status === 'Failed' ? (
                           <div style={{ fontSize: 13, fontWeight: 800, color: '#dc2626' }}>
-                            ₹ {tx.amount.toLocaleString('en-IN')}
+                            ₹ {tx.amount.toLocaleString('en-IN', { minimumFractionDigits: tx.amount % 1 !== 0 ? 2 : 0, maximumFractionDigits: 2 })}
                             <span style={{ display: 'block', fontSize: 10.5, fontWeight: 600 }}>Failed</span>
                           </div>
                         ) : tx.amount === 0 ? (
@@ -831,7 +843,7 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
                           </div>
                         ) : (
                           <div style={{ fontSize: 13.5, fontWeight: 800, color: '#059669' }}>
-                            + ₹ {tx.amount.toLocaleString('en-IN')}
+                            + ₹ {tx.amount.toLocaleString('en-IN', { minimumFractionDigits: tx.amount % 1 !== 0 ? 2 : 0, maximumFractionDigits: 2 })}
                             <span style={{ display: 'block', fontSize: 10.5, fontWeight: 500, color: '#64748b' }}>{tx.method}</span>
                           </div>
                         )}
@@ -961,7 +973,7 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
                     <div className="wcc-tx-amount" style={{ textAlign: 'right' }}>
                       {tx.status === 'Failed' ? (
                         <div style={{ fontSize: 13, fontWeight: 800, color: '#dc2626' }}>
-                          ₹ {tx.amount.toLocaleString('en-IN')}
+                          ₹ {tx.amount.toLocaleString('en-IN', { minimumFractionDigits: tx.amount % 1 !== 0 ? 2 : 0, maximumFractionDigits: 2 })}
                           <span style={{ display: 'block', fontSize: 10.5, fontWeight: 600 }}>Failed</span>
                         </div>
                       ) : tx.amount === 0 ? (
@@ -971,7 +983,7 @@ export const WCCDashboardPage: React.FC<WCCDashboardPageProps> = ({ onNavigate }
                         </div>
                       ) : (
                         <div style={{ fontSize: 13.5, fontWeight: 800, color: '#059669' }}>
-                          + ₹ {tx.amount.toLocaleString('en-IN')}
+                          + ₹ {tx.amount.toLocaleString('en-IN', { minimumFractionDigits: tx.amount % 1 !== 0 ? 2 : 0, maximumFractionDigits: 2 })}
                           <span style={{ display: 'block', fontSize: 10.5, fontWeight: 500, color: '#64748b' }}>{tx.method}</span>
                         </div>
                       )}
